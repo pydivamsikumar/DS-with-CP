@@ -16,4 +16,4 @@ class Main {
          System.out.println("index " +i+" element is"+n[i]); 
         }
     }
-}code
+}

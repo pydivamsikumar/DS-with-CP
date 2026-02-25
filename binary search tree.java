@@ -1,68 +1,63 @@
-class BST {
-
+class BST{
     Node root;
-
-    class Node {
-        int d;
-        Node l, r;
-
-        Node(int d) {
-            this.d = d;
-            this.l = null;
-            this.r = null;
-        }
-    }
-
-    // Insert Method
-    void insert(int d) {
-        root = insertRec(root, d);
-    }
-
-    Node insertRec(Node root, int d) {
-        if (root == null) {
-            return new Node(d);
-        }
-
-        if (d < root.d) {
-            root.l = insertRec(root.l, d);
-        } else if (d > root.d) {
-            root.r = insertRec(root.r, d);
-        }
-
-        return root;
-    }
-
-    // Search Method
-    boolean searchInBST(int key) {
-        Node curr = root;
-
-        while (curr != null) {
-            if (key == curr.d) {
+    
+    
+    boolean searchinBST(int key,Node root){
+        Node curr=root;
+        while(curr!=null){
+            if(key==curr.d){
                 return true;
-            } else if (key > curr.d) {
-                curr = curr.r;
-            } else {
-                curr = curr.l;
+            }else if(key>curr.d){
+                curr=curr.r;
+            }else{
+                curr=curr.l;
             }
         }
-
         return false;
     }
+    
+    
+}
 
-    // MAIN METHOD
+class Node{
+        int d;
+        Node l,r;
+        // constructor
+        Node(int d){
+            this.d=d;
+            this.l=this.r=null;
+        }
+    }
+
+
+class Main {
     public static void main(String[] args) {
-
-        BST tree = new BST();
-
-        tree.insert(50);
-        tree.insert(30);
-        tree.insert(70);
-        tree.insert(20);
-        tree.insert(40);
-        tree.insert(60);
-        tree.insert(80);
-
-        System.out.println(tree.searchInBST(60)); // true
-        System.out.println(tree.searchInBST(25)); // false
+        System.out.println("Try programiz.pro");
+        
+        BST t=new BST();
+        System.out.println(t);
+        
+        Node a=new Node(40);
+        Node b=new Node(20);
+        Node c=new Node(60);
+        Node d=new Node(15);
+        Node e=new Node(30);
+        Node f=new Node(50);
+        Node g=new Node(70);
+        Node h=new Node(10);
+        
+        //linking
+        a.l=b;// root
+        a.r=c;
+        b.l=d;
+        b.r=e;
+        c.l=f;
+        c.r=g;
+        d.l=h;
+        
+        System.out.println(t.searchinBST(30,a));
+        
+        
+        
     }
 }
